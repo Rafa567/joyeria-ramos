@@ -1,8 +1,8 @@
 {
-  "name": "tiendabackend",
+  "name": "joyeriabackend",
   "version": "1.0.0",
   "description": "Backend of a Fullstack webapp",
-  "author": "jamj2000 at google dot com",
+  "author": "rafa567 at google dot com",
   "license": "GPL",
   "main": "server.js",
   "scripts": {

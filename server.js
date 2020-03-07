@@ -10,6 +10,7 @@ const PORT = process.env.PORT || 3000;
 const DB_URI = process.env.DB_URI;
 
 
+
 // CONEXIÓN A BASE DE DATOS
 mongoose.connect(DB_URI, { useNewUrlParser: true })
     .then(db => console.log("Conexión a BD correcta"))

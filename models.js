@@ -1,20 +1,15 @@
 const mongoose = require('mongoose');
 
 const Cliente = mongoose.model('Cliente',
-  new mongoose.Schema({ nombre: String, apellidos: String })
+  new mongoose.Schema({ nombre: String, apellidos: String, dni: String, telefono: String })
 );
 
-const Producto = mongoose.model('Producto',
-  new mongoose.Schema({ nombre: String, precio: Number })
+const Catalogo = mongoose.model('Catalogo',
+  new mongoose.Schema({ nombre: String, precio: Number,material: String,categoria: String })
 );
+
 
 module.exports = {
   Cliente: Cliente,
-  Producto: Producto
+  Catalogo: Catalogo
 }
-
-// Otra forma más corta:
-// module.exports = {
-//     Cliente,
-//     Articulo
-// }

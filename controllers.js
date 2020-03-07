@@ -1,4 +1,4 @@
-const { Cliente, Producto } = require("./models.js");
+const { Cliente, Catalogo } = require("./models.js");
 
 
 // ------- CLIENTES
@@ -27,7 +27,7 @@ exports.deleteCliente = (req, res) => {
 exports.updateCliente = (req, res) => {
     Cliente.findOneAndUpdate(
         { _id: req.params.id },
-        { $set: { nombre: req.body.nombre, apellidos: req.body.apellidos } }, 
+        { $set: { nombre: req.body.nombre, apellidos: req.body.apellidos, dni: req.body.dni, telefono: req.body.telefono } }, 
         (err, data) => {
             if (err) res.json({ error: err });
             else res.json(data);
@@ -36,7 +36,7 @@ exports.updateCliente = (req, res) => {
 }
 
 exports.createCliente = (req, res) => {
-    const cliente = new Cliente({ nombre: req.body.nombre, apellidos: req.body.apellidos });
+    const cliente = new Cliente({ nombre: req.body.nombre, apellidos: req.body.apellidos, dni: req.body.dni, telefono: req.body.telefono});
     cliente.save((err, data) => {
         if (err) res.json({ error: err });
         else res.json(data);
@@ -44,33 +44,33 @@ exports.createCliente = (req, res) => {
 }
 
 
-// ------ Productos
+// ------ Catalogo
 
-exports.readProductos = (req, res) => {
+exports.readCatalogos = (req, res) => {
     Producto.find({}, (err, data) => {
         if (err) res.json({ error: err });
         else res.json(data);
     });
 }
 
-exports.readProducto = (req, res) => {
-    Producto.findOne({ _id: req.params.id }, (err, data) => {
+exports.readCatalogo = (req, res) => {
+    Catalogo.findOne({ _id: req.params.id }, (err, data) => {
         if (err) res.json({ error: err });
         else res.json(data);
     });
 }
 
-exports.deleteProducto = (req, res) => {
-    Producto.findOneAndRemove({ _id: req.params.id }, (err, data) => {
+exports.deleteCatalogo = (req, res) => {
+    Catalgo.findOneAndRemove({ _id: req.params.id }, (err, data) => {
         if (err) res.json({ error: err });
         else res.json(data);
     });
 }
 
-exports.updateProducto = (req, res) => {
-    Producto.findOneAndUpdate(
+exports.updateCatalogo = (req, res) => {
+    Catalogo.findOneAndUpdate(
         { _id: req.params.id },
-        { $set: { nombre: req.body.nombre, precio: req.body.precio } }, 
+        { $set: { nombre: req.body.nombre, precio: req.body.precio,material: req.body.material ,categoria: req.body.categoria  } }, 
         (err, data) => {
             if (err) res.json({ error: err });
             else res.json(data);
@@ -78,9 +78,9 @@ exports.updateProducto = (req, res) => {
     );
 }
 
-exports.createProducto = (req, res) => {
-    const producto = new Articulo({ nombre: req.body.nombre, precio: req.body.precio });
-    producto.save((err, data) => {
+exports.createCatalogo = (req, res) => {
+    const catalogo = new Catalogo({ nombre: req.body.nombre, precio: req.body.precio,material: req.body.material ,categoria: req.body.categoria });
+    catalogo.save((err, data) => {
         if (err) res.json({ error: err });
         else res.json(data);
     });
