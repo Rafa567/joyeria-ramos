@@ -47,7 +47,7 @@ exports.createCliente = (req, res) => {
 // ------ Catalogo
 
 exports.readCatalogos = (req, res) => {
-    Producto.find({}, (err, data) => {
+    Catalogo.find({}, (err, data) => {
         if (err) res.json({ error: err });
         else res.json(data);
     });
